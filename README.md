@@ -1,0 +1,21 @@
+# Credit Risk Scoring (Bank loan)
+
+- Normalized the column names of the dataframe.
+- Checked for null and unique values in each column.
+- As the complete data was given integers, we needed to change the categorical features to string type so that we can apply one hot encoding.
+- We checked the statistics of the numerical data, where we observed `99999999.0` as max values which actually were the white spaces and not null.
+- Replaced them with `np.nan`.
+- Dropped one row where we didn't knew if the client payed the loan or not.
+- Splitted the dataframe into training, validation and test datasets.
+- As we replaced some vlaues with `np.nan` we had to use `fillna(0)` to make further progress.
+- To apply `one hot encoding` we needed dictionary of categotical features.
+- Thus converted dataset into dictionary using `DictVectorizer`.
+- Trained the model on `DecisionTreeClassifier`.
+- Checked `roc_auc_score` for training dataset, score = 1.0
+- Checked `roc_auc_score` for validation dataset, score = 0.64
+- This shows that our model overfitted.
+- Applied `mx_depth` and `min_sample_leaf` features implied increase in score.
+- Aplied `RandomForestClassifier` to see if we can make for a better score.
+- After hyperparameter tuning of `max_depth`, `n_estimators` and `min_sample_leaf` we got the score of 82.3%
+- To further increase score we tried if gradient boosting using `xgboost` can improve the score or not.
+- After hyperparameter tuning of `eta`, `max_depth`, `min_child_weight`, `objective`,`eval_metric`, `nthread`, `seed`, `silent`, `colsample_bytree` we got the score of 83.8%
