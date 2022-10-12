@@ -19,3 +19,4 @@
 - After hyperparameter tuning of `max_depth`, `n_estimators` and `min_sample_leaf` we got the score of 82.3%
 - To further increase score we tried if gradient boosting using `xgboost` can improve the score or not.
 - After hyperparameter tuning of `eta`, `max_depth`, `min_child_weight`, `objective`,`eval_metric`, `nthread`, `seed`, `silent`, `colsample_bytree` we got the score of 83.8%
+- Refer to the .ipynb file.
